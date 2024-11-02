@@ -11,7 +11,7 @@ getgenv().flags = {
 
 getgenv().coroutines = getgenv().coroutines or {}
 
-local function createTapCoroutine(remote, flag)
+local function tapDaddy(remote, flag)
     return coroutine.create(function()
         while getgenv().flags[flag] do
             remote:FireServer()
@@ -21,6 +21,6 @@ local function createTapCoroutine(remote, flag)
 end
 
 if tap and tap:IsA("RemoteEvent") and superTap and superTap:IsA("RemoteEvent") then
-    getgenv().coroutines.autoTap = coroutine.resume(createTapCoroutine(tap, "autoTap"))
-    getgenv().coroutines.autoSuperTap = coroutine.resume(createTapCoroutine(superTap, "autoSuperTap"))
+    getgenv().coroutines.autoTap = coroutine.resume(tapDaddy(tap, "autoTap"))
+    getgenv().coroutines.autoSuperTap = coroutine.resume(tapDaddy(superTap, "autoSuperTap"))
 end
