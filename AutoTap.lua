@@ -1,4 +1,3 @@
--- Initializing services and remotes
 local rs = game:GetService("ReplicatedStorage")
 local tr = rs:FindFirstChild("TappingRemote")
 
